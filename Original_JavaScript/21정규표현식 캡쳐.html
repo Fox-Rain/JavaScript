@@ -1,0 +1,18 @@
+<!-- $은 그룹을 말한다. -->
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            var pattern = /(\w+)\s(\w+)/;       // 이 패턴은 "문자"+띄어쓰기+"문자" 라는 패턴이다.
+            var str = "coding everyone";
+
+            var result = str.replace(pattern,"$2, $1"); // replace를 하게되면 "everyone, coding" 이 출력된다
+                                                        // 왜냐하면 여기서의 $은 패턴에서의 그룹을 말하는 단위이다 $2(everyone)은 두번째 그룹
+                                                        // $1(coding)은 첫번째그룹 이기 때문에 "everyone , coding"이 출력되게 되는 것이다.
+        
+        </script>                       
+    </body>
+</html>

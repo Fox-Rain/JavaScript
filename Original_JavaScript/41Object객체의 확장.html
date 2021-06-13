@@ -1,0 +1,28 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            // Object를 확장하여서 모든 객체에게 적용될 수 있는 메소드를 만들 수 있다.
+            // Ex) 객체안에 원하는값이 있다면 True, 없다면 False를 리턴하는 메소드
+            Object.prototype.contain = function(value)
+            {
+                for(var name in this)       // this는 속한 객체를 의미하고, name 은 속한객체의 키값을 차례대로 가져온다.
+                {
+                    if(this[name] === value) return true;   // 만약 value와 같은 값이 있다면 true 리턴
+                }
+
+                return false;       // for문이 끝나도 없다면 false 리턴
+            }
+
+            var a = ["A","B","C"];          // 배열
+            var b = {1:"D",2:"E",3:"F"};    // 객체
+
+            // Object는 모든 객체의 부모 객체이고 .prototype으로 선언하였기 때문에 모든 객체에 상속되므로 모든 객체에서 사용이 가능
+            document.write(a.contain("D")+"<br>");      //    없으므로 false 출력
+            document.write(b.contain("D"));             //    있으므로 true  출력
+        </script>
+    </body>
+</html>

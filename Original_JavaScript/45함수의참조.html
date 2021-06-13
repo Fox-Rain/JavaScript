@@ -1,0 +1,45 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            var a = 1;
+            
+            function func(b)    // 함수에 전달되더라도 원시데이터 타입의 경우 "복제"되어서 들어가기때문에 원본에는 변화가 일어나지 않는다.
+            {
+                b=2;
+            }
+
+            func(a);
+            document.write(a);  // a는 바뀌지 않고 1로 출력된다.
+
+
+
+
+            var a ={"id":1};
+            
+            function func(b)
+            {
+                b={"id":2};         // 새 객체를 대입하는것이므로 a에게는 영향이 없다.
+            }
+
+            func(a);
+            document.write(a.id);   // a는 바뀌지않고 1을 출력한다.
+
+            
+
+
+            var a={"id":1};
+
+            function func(b)
+            {
+                b.id=2;             // 새객체를 대입한것이 아닌, 서로 같이 참조하는 객체의 속성을 바꾼것이기 때문에 a에도 변화가 일어난다.
+            }
+
+            func(a);
+            document.write(a.id);   // a는 바뀐 2를 출력한다.
+        </script>
+    </body>
+</html>

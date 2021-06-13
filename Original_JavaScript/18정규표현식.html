@@ -1,0 +1,29 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+        // 정규표현식 (패턴 만들기)
+        var pattern = /a/;                //   '/ /'안의 값을 찾는 정규표현식 객체가 생성된다.  형식 var 정규표현식명 = / /;
+        var pattern = new RegExp("a");    //   '( )'안의 값을 찾는 정규표현식 객체가 생성된다.  형식 var 정규표현식명 = new RegExp();
+        //  "/ /"나 "( )" 안에는 여러가지 정규식이 들어갈 수 있다.
+        
+        // .exec()          "추출"
+        pattern.exec("abcde");                  // pattern.exec(""); 정규표현식명.exec()는 ""안에 문자열에서 패턴에 맞는것이 있다면
+        document.write(pattern.exec("abcde"));  // 찾아서 배열로 리턴한다.  따라서 document.write로 출력하면 "a"가 출력됨.
+                                                // 만약 찾고자하는 값이 없다면 리턴값으로 'Null'을 리턴한다.
+
+                 
+        // .test()          "유무"
+        // pattern.test(""); 정규식표현명.test()는 ""안에 문자열에서 패턴이 맞는것이 있다면 True, 없다면,False를 리턴함 (Boolean)
+        pattern.test("abcde");              
+        document.write(pattern.test("abcde"));  // 있으므로 True
+        
+        pattern.test("bcde");
+        document.write(pattern.test("bcde"));   // 없으므로 False
+
+        </script>
+    </body>
+</html>

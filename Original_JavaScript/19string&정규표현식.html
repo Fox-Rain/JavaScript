@@ -1,0 +1,25 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            // .match()       문자열명.match(정규표현식객체명); 정규표현식과 맞는 것이 문자열에 있으면 그것을 출력
+            var pattern = new RegExp("a");
+            var str = "abcde";
+            
+            str.match(pattern);         // str(문자열)에 패턴과 맞는 것이 있다면 그것을 리턴함
+            document.write(str.match(pattern)); // a 리턴
+
+
+
+            // .replace()
+            var pattern = new RegExp("a");
+            var str = "abcde";
+
+            str.replace(pattern,"A");   // str중에 패턴과 맞는것이 있다면 찾아서 "A" 로 바꾼다. 따라서 Abcde가 됨.(패턴,바꿀문자)가 파라미터
+            
+        </script>
+    </body>
+</html>

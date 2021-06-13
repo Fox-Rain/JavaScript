@@ -1,0 +1,35 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            // 자바스크립트는 함수안에서 함수가 선언될 수 있다. // 
+            function outter()       // 외부함수 (내부함수를 감싸고있는 함수)
+            {   
+                function inner()    // 내부함수 (외부함수에 의해 감싸져있는 함수)
+                {
+                    var title = "coding everyone";
+                    alert(title);
+                }
+                inner();
+            }
+            outter();
+
+
+
+            // 클로저란? 외부함수의 실행이 끝나서 외부함수가 종료(소멸)된 이후에도 내부함수가 외부함수의 변수에 접근할 수 있는 것을 말한다.
+            function outter()
+            {
+                var title = "coding everyone";
+                return function(){return alert(title);};
+            }
+            
+            inner = outter();   // 여기서 inner에 alert(title)이라는 함수가 대입되게 된다.
+            inner();            // 그런데 inner()을 실행하면 "coding everyone"이 출력되게 된다. 분명히 outter이라는 함수는 리턴값을 
+                                // 리턴해주고 종료되었음에도 불구하고 alert(title)에서의 title은 분명 outter의 지역변수 값인데
+                                // outter가 종료되었음에도 불구하고 어떻게 가져올 수 있을까?  <-- 이것을 클로저라고 한다.
+        </script>
+    </body>
+</html>

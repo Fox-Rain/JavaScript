@@ -1,0 +1,66 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            // 함수에서의 this
+            function func()
+            {                           // this는 함수내에서 함수호출맥락을 의미한다. (맥락에 따라서 의미가 달라질 수 있다는 의미 )
+                if(window === this)     // window(전역 객체)와 this가 같은지
+                {                       // 여기서 모든것은 window 객체에 속해있으므로 this는 window를 의미함.
+                    document.write("window === this");  // 같기에 출력됨. window === this
+                }
+            }
+            func();                      // window === this
+
+
+
+            // 메소드에서의 this
+             var o =
+             {
+                 func:function()
+                 {
+                     if(o === this)     // o(메소드가 속한 객체)와 this가 같은지
+                     {                  // 여기서 this는 자신이 속한 객체를 의미함.
+                         document.write("o === this");  // 같기에 출력됨. o === this
+                     }
+                 }
+             }
+
+             o.func();              // o === this
+
+             
+
+
+             // **** 생성자에서의 this
+             var funcThis = null;
+
+             function Func()       
+             {
+                 funcThis = this;
+             }
+
+             var o1 = Func();       // 일반함수를 대입함.
+
+             if(funcThis === window)    // *** 일반함수므로 this는 window를 가르킬것이고 funThis === window 즉 참이다
+             {
+                 document.write("window"+"<br>");   // window 출력
+             }
+
+             var o2 = new Func();   // 생성자를 대입함.     o2 {} o2객체
+             // ******************************************************************************************************************* //
+             // 주의할점--> 생성자를 통해 객체가 생성될 경우, 생성자함수가 실행되고 "끝나야만" 그 객체에 관해서 접근할 수 있다.
+             // 즉, Ex) function Func() {if(o2 === this){...}} 이런식으로 생성자함수가 실행되는동안 o2에 접근하려는 등의 시도는 불가능하다
+             
+             if(funcThis === o2)    // *** 생성자를 대입하였으므로 this는 객체 o2를 의미하게 된다. 따라서 참이다.
+             {
+                 document.write("o2"+"<br>");   // o2 출력
+             }
+
+             
+             // this는 자신이 속한 객체를 가르킨다!!!!!!!!!!!!!! 공통점임!! //
+        </script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            // 연속적으로 상속  "Prototype chain" 
+            function Ultra(){}
+            Ultra.prototype.UltraProp = true;   // 상속에
+
+            function Super(){}
+            Super.prototype = new Ultra();      // 상속에
+
+            function Sub(){}
+            Sub.prototype = new Super();        // 상속
+
+            var o = new Sub();
+            document.write(o.UltraProp);    // true         Ultra()에 있으므로
+
+            // 주의할점 어떠한 prototype 속성을 가져올때에는 상속받은 방향과 반대로 거슬러 올라가면서 찾기 때문에
+            // 가장 가까이에서 상속된 객체의 값을 가져온다.!
+            // Ex) 만약 sub()에 sub.prototype.UltraProp = 2; 가 있었다면 위의 document.write(o.UltraProp);는 2를 출력했을 것이다.
+            // sub객체가 Ultra객체보다 더 가깝게 있으므로!
+
+        </script>
+    </body>
+</html>

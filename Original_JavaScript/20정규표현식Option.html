@@ -1,0 +1,31 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            // 옵션 i
+            var xi = /a/;
+            "Abcde".match(xi);                  // 이경우 'a'가 없기 때문에 null이 반환된다.
+            document.write("Abcde".match(xi));  // NUll
+
+            var oi = /a/i;                      // 원하는 정규표현식 조건뒤에 i를 붙여준다. (i 옵션)
+            "Abcde".match(oi);                  // 이경우 패턴에 맞는지 찾을때 "대소문자 구분을 하지않고 전부 찾는다."
+            document.write("Abcde".match(oi));  // 따라서 "A" 또한 패턴에 맞는것으로 간주하여 "A"가 출력된다.
+            
+            // 옵션 g
+            var xg = /a/;
+            "abcda".match(xg);                  // 이경우 'a'가 하나만 반환된다.
+            document.write("abcda".match(xg));  // "a"가 출력된다.
+
+            var og = /a/g;                      // 원하는 정규표현식 조건뒤에 g를 붙여준다. (g 옵션)
+            "abcda".match(og);                  // 이경우 패턴에 맞는것이 중복되더라도 모두 리턴한다.
+            document.write("abcda".match(og));  // 따라서 ["a","a"]가 출력된다.
+
+            // ig
+            var oig = /a/ig;                    // 이렇게 i와g옵션을 같이 사용할 수도 있다.
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            // 생성자란? 객체를 만드는 역할을 하는 함수를 말한다. 자바스크립트에서 함수는 객체를 만드는 창조자 역할을 할 수 있다!
+            function Person(){}             // 그냥 함수 선언
+            var _p = Person();              // Person()함수는 리턴값이 없기 때문에 _p는 어떠한 값도 존재하지 않음.
+            var P = new Person();           // ***  new Person()으로 초기화 해주면, P는 person{}이라는 객체가 됨!
+                                            // ***  new를 함수앞에 붙이게되면 javascript에서는 생성자로 인식함 "객체 생성자"
+            P.name = "egoing";              // 객체 속성 추가
+            P.introduce = function()        // 객체 메소드 추가
+            {
+                return "My name is "+this.name;
+            }
+
+            document.write(P.introduce());
+
+            // 생성자 또다른 사용법         중복을 줄이기        이런식으로 "생성자에 파라미터"를 만들어서 생성할 수도 있다.
+            function Person(name)           // 생성자 함수안에 그 객체가 가질 정보들을 선언해주는것 즉, 객체를 초기화 할 수 있다.
+            {
+                this.name = name;
+                this.introduce = function()
+                {
+                    return "My name is "+ this.name;
+                }
+            }
+
+            var p1 = new person("egoing");
+            document.write(p1.introduce()+"<br>");
+
+            var p2 = new person("lezzez");
+            document.write(p2.introduce());
+
+        </script>
+    </body>
+</html>

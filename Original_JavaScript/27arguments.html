@@ -1,0 +1,31 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            // arguments란? 유사배열, 유사객체로 써     사용자가 전달한 인자가 안에 들어가게 된다.
+            
+            function sum()      // 몇개의 인자가 들어갈지 모를때, 매개변수를 정하지 않고, argumnets를 사용하기도 한다.
+            {                   // ***또한, 자바스크립트는 매우 관대한 언어이기 때문에 정해진 매개변수의 개수를 어기고 적거나 많게
+                                //    인자를 집어넣어도 에러가 발생하지 않기에 각별히 주의가 필요하다.
+                var _sum = 0;
+                for(var i=0; i<arguments.length; i++)
+                {
+                    document.write(i+" : "+arguments[i]+"<br>");    // arguments[i]  arguments 또한 인덱스를 사용하여 값에
+                    _sum += arguments[i];                           // 접근할 수 있다.
+                }
+                return _sum;
+            }
+
+            document.write("result: "+sum(1,2,3,4));    // 여기서 sum()으로의 인자가 1,2,3,4가 들어갔으므로 argument 또한[1,2,3,4]가 된다
+            //  0:1
+            //  1:2
+            //  2:3
+            //  3:4
+            // result:10            이 출력된다.
+
+        </script>
+    </body>
+</html>

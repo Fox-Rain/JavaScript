@@ -1,0 +1,36 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            var A=
+            {
+                "list":{"egoing":100, "k8805":98, "soril":88},  // "객체안에 객체"가 들어갈 수도 있다.
+                
+                "show":function()                               // "객체안에 함수"가 들어갈 수도 있다.
+                {
+                    document.write("hello world");
+                }
+            }
+
+            document.write(A.list.egoing+"<br>");       // A.list.egoing 이런식으로 100을 가져올 수 있다.
+            A.show();
+            document.write("<br>");
+
+
+            var B=
+            {   
+                "list":100,
+                "show":function()
+                {
+                    document.write(this.list);       // *** this는 그 this가 속해있는 객체를 가르킨다. ***
+                }                                    // 즉, 이예시에서는 this.list == B.list가 된다.  따라서 100이 출력됨.
+            }
+            
+            B.show();
+
+        </script>
+    </body>
+</html>

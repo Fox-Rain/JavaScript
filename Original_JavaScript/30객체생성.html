@@ -1,0 +1,26 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            //  객체 선언   //
+            var person ={};      // 빈 객체 person 선언
+            person.name = "egoing";         // person의 name이라는 속성에 egoing을 담음
+            person.introduce = function()   // person의 introduce라는 속성에 메소드를 담음
+            {
+                return "my name is "+this.name;     // this는 자신이 속한 객체를 말하므로 === person.name
+            }
+            //   객체 선언 또 다른 방법 //
+            var person=
+            {
+                "name":"egoing",
+                "introduce":function()
+                {
+                    return "my name is "+this.name;
+                }
+            }
+        </script>
+    </body>
+</html>

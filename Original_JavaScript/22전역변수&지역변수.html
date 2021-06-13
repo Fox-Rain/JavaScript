@@ -1,0 +1,35 @@
+<!-- ************ Javascript는  함수안에서 선언된 변수는 그함수 안에서만 유효한 지역변수이지만,
+     for문, while문등에서 선언된 변수는 지역변수가 아니라는것을 꼭 유의하세요!!!!   ******************-->
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            
+            // 지역변수 vs 전역변수 //  var을 붙이냐 or 안붙이냐     대부분 "지역변수"를 사용하는것을 지향하는게 좋다.
+            
+            var vscope = "global";      // 전역변수     "모든곳"에서 접근이 가능
+
+            function fscope()
+            {
+                var vscope = "local";   // 지역변수     "지역안에서만" 접근이 가능  (또한 이 예에서는 function(함수지역안)에서 var을 통해
+                                        // *** var vscope로 변수를 선언했기에 vscope은 새로운 지역변수이다. 따라서 외부에서 vscope값을 리턴할
+                                        // 시 값은 변하지않고 global이 리턴된다.) ***
+                alert(vscope);          
+            }
+
+            fscope();                   // local이 출력됨   
+            alert(vscope);              // global이 출력됨
+            
+            function kscope()
+            {
+                vscope = "local";       // 이떄에는 vscope을 지역변수로 새로 선언한것이 아니기 때문에 외부의 전역변수에 "local"값을
+            }                           // *** 대입한다는 의미가 된다. 따라서 함수 외부에서 vscope의 값을 리턴하게 되면 바뀐값인 local이
+                                        // 리턴되게 된다. ***
+
+            
+        </script>
+    </body>
+</html>

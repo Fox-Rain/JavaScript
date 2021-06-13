@@ -1,0 +1,39 @@
+<!-- 공통적인 부모 객체에서 상속을 시키고 아래의 객체들을 조금씩 수정하는 방향으로 프로그램을 짠다면 유지보수는 물론 코드가
+     간결해지기도 하는 장점이 있다.       -->
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            function person(name)                   // person객체 생성자
+            {
+                this.name = name;
+            }
+
+            person.prototype.name = null;           // prototype으로 상속할 속성들 선언
+            person.prototype.introduce = function() // prototype으로 상속할 메소드 선언
+            {
+                return "My name is "+this.name;
+            }
+
+            function programmer(name)               // 또다른 programmer 생성자
+            {
+                this.name = name;
+            }
+
+            programmer.prototype = new person();    // programmer에 person의 속성,메소드 상속
+            
+            // programmer객체에만 다른 속성(메소드)를 추가함 //
+            programmer.prototype.coding = function()// **** 기능추가 *** .prototype. ... 으로 또다른 속성 or 메소드를 추가함
+            {
+                return "Hello world";
+            }
+
+            var p1 = new programmer("egoing");      // 생성자를통해 객체 생성
+            document.write(p1.introduce()+"<br>");    // My name is egoing 출력
+            document.write(p1.coding());            // 새로 추가된 메소드를 통해 Hello world 출력   
+        </script>
+    </body>
+</html>

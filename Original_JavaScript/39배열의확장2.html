@@ -1,0 +1,23 @@
+<!-- prototype을 통해 내장객체의 여러 메소드나 속성들을 추가할 수 있다.     -->
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            // 배열 객체의 원형에 radom함수를 디폴트로 추가           // 이렇게되면 this는 자신의 객체를 가르키게 된다.
+            Array.portotype.random = function()                     // Array생성자에 prototype을 통하여 상속할 수 있는 radom이라는
+            {                                                       // 함수를 메소드롤 넣어줌.
+                var index = Math.floor(this.length*Math.random());   
+                var result = this[index];
+
+                return result;
+            }
+
+            var arr = new Array("A","B","C","D",'E');               // Array함수에 new를 붙여서  배열생성자를 통하여 arr배열 생성
+            arr.random();                                           // Array생성자를 통해 만들었기 때문에 random함수또한 상속되어있음 
+        </script>
+    </body>
+</html>

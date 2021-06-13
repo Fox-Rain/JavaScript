@@ -1,0 +1,24 @@
+<!-- 표준내장객체란 javascript내부에 원래 정의되어있는 객체를 말한다.
+     우리가 따로 만드는 사용자 정의 객체와는 반대되는 개념이다.     -->
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            var array = new Array("A","B","C","D","E");             // *** 배열 생성자 new Array();
+
+            function get_Random_Value_TO_Array(arr)
+            {
+                var index = Math.floor(arr.length*Math.random());   // Math.random()  랜덤한 0~1사이 실수 리턴   
+                var result = arr[index];                            // Math.floor()  뒤에 소숫자리를 없애줌 (정수로 만듦)
+
+                return result;
+            }
+
+            document.write(get_Random_Value_TO_Array(array));       // array배열의 랜덤한 값이 출력된다.
+        
+        </script>
+    </body>
+</html>

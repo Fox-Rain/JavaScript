@@ -1,0 +1,61 @@
+<!-- Javascript의 함수의 특별한점은 함수 자체가 값이 되어 변수에 대입이 될 수 있다는 점이다. -->
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            var a = function(){};       // 함수는 값이기 때문에 변수에 대입될 수 있다.
+
+
+
+            b=                          
+            {
+                k:function()            // 함수는 값이기 때문에 객체의 속성의 메소드로 대입될 수 있다.
+                {
+
+                }
+            };
+
+
+
+            function increase(num)
+            {
+                return num++;
+            }
+            function cal (increase,num)  // 함수는 값이기 때문에 함수의 인자로도 대입될 수 있다 (increase는 함수)
+            {
+                return increase(num)
+            }
+
+
+
+            function cal(x)
+            {
+                var funs=
+                {
+                    "plus":function(left,right){return left+right;},
+                    "minus":function(left,right){return left-right;}
+                }
+
+                return funs.x;          // 함수는 값이기 때문에 리턴값으로 함수가 리턴될 수 있다.
+            }
+            document.write(cal("plus")(2,1));       // cal("plus")부분은 funs.plus의 함수가 리턴이 되고 그 함수에 (2,1)을 left,right
+                                                    // 파라미터로 넣는다는 의미이다.   따라서 '3'이 출력되게 된다.
+            
+
+
+
+            var process=                            // 함수는 값이기 때문에 배열에 요소값으로도 함수가 들어갈 수 있다.
+            [
+                function(input){return ++input;},
+                function(input){return --input;}
+            ];
+
+            document.write(process[1](10));         // process[1]은 function(input){return input--;} 따라서 9가 나오게 된다.
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type='text/javascript'>
+            function one(arg1)
+            {
+                alert(one.length);
+                alert(arguments.length);
+            }
+                                    // ************************************************************** //
+            one("val1","val2");     // 이 경우 one.length는 1이 출력되고, arguments.length는 2가 출력된다.
+                                    // 즉, 어느객체에서의 length는 매개변수(변수)개수를 출력하는것이고
+                                    // arguments에서의 length는 진짜로 들어온 인자의 개수를 출력하는 것이다.
+                                    // 이러한 차이를 이용하여서 만약 매개변수와 들어온 인수의 개수가 다르다면 에러를 출력하도록 설계하는
+                                    // 등에 쓰인다.
+        </script>
+    </body>
+</html>

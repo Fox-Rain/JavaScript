@@ -1,0 +1,19 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+        // 객체는 배열과 다르게 순서가없기 때문에 for문을 통한 반복문을 돌릴때 "in"을 이용한다.
+            
+            var members = {"scientist":"harang", "teacher":"minyoung", "cooker":"heejin"};
+
+            for(key in members)     // *** for(인덱스명 in 객체명) 객체의 요소의 인덱스를 key에 순차적으로 대입한다. ***      
+            {
+                document.write(key+":  "+members.key+"<br>");
+            }
+
+        </script>
+    </body>
+</html>

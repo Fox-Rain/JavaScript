@@ -1,0 +1,37 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            // Private variable     프로그램을 아무나 수정하는것을 방지하기 위해 쓰여진다.
+            function factory_movie(title)       // 외부함수 역할    "title" 변수가 바로 private variable이다.
+            {
+                return {                        // 객체를 리턴해줌
+                    get_title:function()        // 내부함수 역할
+                    {
+                        return title;
+                    },
+                    set_title:function(_title)  // 내부함수 역할
+                    {
+                        title=_title;
+                    }
+                };
+            }
+            // 외부함수의 지역변수 title이 Private variable인 이유 //
+            /* title은 외부함수의 지역변수이다. 따라서 아래의 코드를 보게되면, 객체를 리턴하고 난뒤엔 종료되버리기때문에 직접적으로
+               접근할 수 없게 된다. 따라서 get_title 또는 set_title 메소드를 통해서만 간접적으로 접근할 수 있게되므로 ,
+               이 변수를 private variable이라고 부른다. */
+
+            ghost = factory_movie("Ghost in the shell");    //title값이 ghost in the shell 임
+            matrix = factory_movie("Matrix");               // title값이 Matrix 임
+            
+            alert(ghost.get_title());   // ghost in the shell 출력
+            alert(matrix.get_title());  // matrix 출력
+
+            ghost.set_title("공각기동대");                  // title의 값이 공각기동대로 바뀜 (ghost in the shell --> 공각기동대)
+            alert(ghost.get_title());   // 공각기동대 출력
+        </script>
+    </body>
+</html>

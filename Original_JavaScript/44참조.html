@@ -1,0 +1,29 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            // 원시데이터타입 (string, number,boolean,null,undefined) 는 대입할 경우 복제가 일어나므로 원본은 유지가 된다.
+            var a = 1;
+            var b = a;
+            b = 2;
+            document.write(a);      // a 1로 변하지않고 출력됨
+
+            // 원시데이터 타입이 아닐 경우 (객체등.. ) 참조가 일어난다. 대입시 원본이 대입되는것이다. (변경시 원본이 유지되지 않음)
+            var a = {"id":"harang"};
+            var b = a;
+            b.id = "min";           // 참조받은 객체가 그안에 속성을 바꾸면 원본의 값도 바뀐다. 즉, 대입할때 복제가 일어나는것이 아니라 원본
+            document.write(a.id);   // min으로 바뀌여 출력된다.
+
+            
+            
+            // 또다른 상황
+            var a ={"id":"harang"};
+            var b = a;
+            b ={"id":"min"};        // *** {...}은 처음객체를 바꾼것이 아닌 새로운 객체를 만든것, 즉 이때부터 b와 a는 참조하는것이 다른것이다.
+            document.write(a.id);   // harang으로 바뀌지 않고 출력된다.       
+        </script>
+    </body>
+</html>

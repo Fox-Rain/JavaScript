@@ -1,0 +1,34 @@
+
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            // 객체들은 상속을 받을 수 있다. 그러한 모든 객체들에게서 가장 꼭대기의 부모 객체는 바로 Object이다.
+            // 따라서 Object에 prototype을 통해 속성을 추가하게 되면, 사용자가 설정하든, 내장되있던 모든 객체에 그 속성을 추가 할 수 있다.
+
+            // Object.keys()
+            var arr = ["a","b","c"];
+            document.write(Object.keys(arr)+"<br>");    // Object.Keys() ()안의 객체의 키값들만 배열로 리턴함.  [0,1,2] 출력
+
+            // Object.prototype.toString()
+            var o = new Object();
+            document.write(o.toString());               // 객체.tostriong() 객체의 value값들만 리턴함.
+
+            /* prototype이 있는것 vs prototype이 없는것
+               프로토타입이 없는것으로 Object.keys() 의 경우는 이런식으로 생성된 것이다. --> Object.keys = function () {};
+               프로토타입이 있는것으로 Object.prototype.toString() 의 경우는 이렇게 생성된다. -->
+               Object.prototype.toString = function() {};
+               따라서 프로토타입이 없는 경우는 Object.keys()의 파라미터를 넣는 식으로,
+               프로토타입이 있는 경우는 객체.toString()이런식으로 사용된다.     */
+
+            /* 쉽게 Object.func()는 Object만 사용할 수있는 함수고 
+               Object.prototype.func() 그 Obejct를 상속받는 객체들이 사용할 수 있는 함수다 */
+
+             // 즉, Object.prototype. ...은 모든 객체에서 사용할 수 있는 메소드가 된다는 것이고,
+             // Object.prototype. ...을 통해 사용자가 모든 객체에 대해서 메소드를 만들 수도 있다는 것을 의미합니다.   
+        </script>
+    </body>
+</html>

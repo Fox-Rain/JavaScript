@@ -1,0 +1,35 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            // 함수 또한 객체이다.
+            var o = {};
+            var p = {};
+
+            function func()
+            {
+                switch(this)
+                {
+                    case o:
+                        document.write("o"+"<br>");
+                        break;
+                    case p:
+                        document.write("p"+"<br>");
+                        break;
+                    case window:
+                        document.write("window");
+                        break;    
+                }
+            }
+
+            func();         // window 출력
+            func.apply(o);  // o 출력       apply 경우 o.func()와 같으므로  o의 메소드로서 func()가됨      
+            func.apply(p);  // p 출력       apply 경우 p.func()와 같으므로  p의 메소드로서 func()가됨
+
+            // this 는 변화무쌍      *******  누구의 소속이냐의 따라서 this는 그것의 객체를 가르킴. ********
+        </script>
+    </body>
+</html>
