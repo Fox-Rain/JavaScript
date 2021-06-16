@@ -1,0 +1,38 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li id="active">JAVASCRIPT</li>
+        </ul>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <Script>
+            var li = $("li"); // $()는 jquery함수, li는 그 jquery함수로 인해 만들어진 jquery객체이다.
+            li.css("text-decoration","underline"); // li.css(text-decoration,underline)은 이와 같다, ==   text-decoration:"underline";
+            li.css("text-decoration"); // li.css() 인자를 하나만 넣을 경우 값을 가져오는것이 된다. 즉, 지금상태의 css를 리턴
+            // 단, 지금상태의 값을 가져오는 경우 위의서의 설정하는것과 다르게 맨처음 하나의 값만 가져오게 된다.
+            
+            // 또한 Chainning이 가능하다
+            li.css("text-decoration","underline").css("color","red"); // 왜냐하면 메소드들이 자신의 객체를 리턴하기 때문에 channing이 가능
+
+
+            // var li =$("li"); 의 경우 li가 유사배열처럼 쓰이기 때문에 li[0], li[1]을 통해 값에 접근이 가능하나, li[0],il[1]등 자체는
+            // jqeury객체가 아니기 때문에 .css와 같은 메소드를 사용할 수 없다.  Ex) li[2].css()불가능  li.css()가능
+            // 따라서 li[2]등의 유사배열요소도 jquery객체로 만들어 주어야하는데, 아래처럼 해주면 메소드를 사용할 수 있게 된다.
+            $(li[1]).css("color","green");
+
+            
+            // jquery의 메소드 .map()
+            var li = $("li");
+            li.map(function(index,elem) // .map()은 함수를 인자로 받고 li의 요소마다 순회하면서 함수를 실행시킨다.
+            {                           // function( , )에서 첫번째인자엔 인덱스가 들어가게되고, 두번째 인자엔 그인덱스의 요소가 들어가게된다.
+                console.log(index,elem);// 0 li    1 li    2 li    가 출력
+                $(elem).css("color","green"); // 모든 li의 글자색이 녹색이 됨
+            })
+        </script>
+    </body>
+</html>

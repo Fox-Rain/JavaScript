@@ -1,0 +1,36 @@
+<!-- 자주 사용되는 로직을 재사용할 수 있도록 고안된 라이브러리 -->
+<!-- jquery를 사용하면 DOM을 사용하는것보다 훨씬 효율적으로 객체를 찾을 수 있다. -->
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JAVASCRIPT</li>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> <!-- jquery를 cdn으로 실행 -->
+        <script>
+            // jQuery 기본문법   $("li").css("color","red");        $()는 jquery의 함수이며, ()안에는 대부분 css선택자가 들어간다.
+            // $()는 즉, 함수므로 객체를 리턴하는데 "jquery 객체"를 리턴한다. 즉, 위의 예시는 li선택자인 jquery객체의 css메소드를 호출
+            // 한것이 된다.    css("color","red");는  color=red와 같다.
+            
+            var lis = document.getElementsByTagName("li");
+            for(var i=0;i<lis.length;++i)
+            {
+                lis[i].style.color=red;
+            }
+            // 위의 코드와 같은 기능을 하는데 jquery로 작성시 훨씬 코드길이가 짧아진다.
+            $("li").css("color","red");
+
+
+            var lis = document.getElementById('active');
+            li.style.color="red";
+            li.style.textdecoration="underline";
+            // 위의 코드와 같은 기능을 함
+            $("#active").css("color","red").css("textDeroation","underline");   // 이렇게 연속적으로 css메소드를 사용할  수 있는 이유는
+            // css()메소드가 리턴값으로 $() 즉, jquery객체를 리턴하기 때문에 연쇄적으로 메소드를 사용할 수 있다.
+        </script> 
+    </body>
+</html>

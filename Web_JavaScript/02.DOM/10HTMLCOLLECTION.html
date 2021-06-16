@@ -1,0 +1,31 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li id="active">JAVASCRIPT</li>
+        </ul>
+        <Script> 
+        // console.group();  console.groupEnd()는 정보를 구룹핑해서 보여준다.
+        console.group("before");
+        var lis = document.getElementsByTagName("li");
+        for(var i=0;i<lis.length;++i)
+        {
+            console.log(lis[i]); // console에서 보면  li, li, li#active가 출력
+        }
+        console.groupEnd();
+
+        console.group("after");
+        lis[1].parentNode.removeChild(lis[1]); // [1] 즉, 2번쨰의 것을 없앤다는 것
+        for(var i=0;i<lis.length;++i)
+        {
+            console.log(lis[i]); // console에서 보면 li, li#active가 출력
+        }
+        
+        </Script>
+    </body>
+</html>

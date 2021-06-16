@@ -1,0 +1,27 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JAVASCRIPT</li>
+        </ul>
+        <ol>
+            <li>HTML</li>
+            <li class ="active">CSS</li>
+            <li>JAVASCRIPT</li>
+        </ol>
+
+        <script>
+            // querySelector()      CSS의 선택자처럼 요소를 가져와서 변화를 줄 수 있다. querySelector()은 하나의 요소만 가져옴
+            // querySelectorAll()   모든 요소를 가져오게 된다.
+            var li_1 = document.querySelector("li");        
+            li_1.style.color="red";
+            var li_2 = document.querySelector(".active");
+            li_2.style.color="orange";
+        </script>
+    </body>
+</html>

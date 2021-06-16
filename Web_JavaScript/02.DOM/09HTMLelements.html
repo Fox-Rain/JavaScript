@@ -1,0 +1,22 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li id="active">JAVASCRIPT</li>
+        </ul>
+        <script>
+            var li=document.getElementById("active");
+            document.write(li.constructor.name+"<br>"); // HTMLLIELEMENT     getElement의 리턴값이 하나라면, HTMLELEMENT카테고리
+            var lis=document.getElementsByTagName("li");  
+            document.write(lis.constructor.name); //HTMLCOLLECTION      getElement의 리턴값이 여러개라면, HTMLCOLLECTION카테고리 일것이다.
+
+            // 모든 HTMLOOElEMENT들은 HTMLELEMENT의 기능을 가지고 있다. 왜냐하면 HTMLELEMENT에 상속을 받기 때문이다.
+            // 즉, HTMLELEMENT의 기능은 모두 가지고 있으면서 자신만의 특별한 기능등을 추가로 가지고 있다.
+        </script>
+    </body>
+</html>

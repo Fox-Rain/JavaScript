@@ -1,0 +1,42 @@
+<!doctype>
+<html>
+    <head>
+    </head>
+    <body>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JAVASCRIPT</li>
+        </ul>
+        <ol>
+            <li>HTML2</li>
+            <li>CSS2</li>
+            <li>JAVASCRIPT2</li>
+        </ol>
+            <input type="button" onclick="change_Font_Color_li();" value="change color">
+            <input type="button" onclick="change_Font_Color_ol_li();" value="change color">
+        <script>
+            // document.getElementsBy....()
+            function change_Font_Color_li()
+            {
+                var lis = document.getElementsByTagName("li");
+                for(var i=0;i<lis.length;++i)
+                {
+                    lis[i].style.color="red";
+                }
+            }
+
+            function change_Font_Color_ol_li()
+            {
+                var ol = document. getElementsByTagName("ol")[0];   // 이런식으로 상위 태그를 먼저 찾고
+                var lis = ol.getElementsByTagName("li");            // 하위 태그를 찾으면, 원하는 li태그만을 찾을 수 있다.
+                for(var i=0;i<lis.length;++i)
+                {
+                    lis[i].style.color="blue";
+                }
+            }
+
+            // getElementsByTagname(), getElementsByClassName(), getElementById <<<한가지만찾음 (id는 한가지만 쓰므로, 성능이 빠르다.)
+        </script>
+    </body>
+</html>
