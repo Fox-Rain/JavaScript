@@ -1,0 +1,47 @@
+<!-- 상속은 높은객체부터 NODE -> ELEMENT -> HTMLELEMENT -> HTMLOOELEMENT..로 이어진다. -->
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li id="active" class="important current">JAVASCRIPT</li>
+        </ul>
+        <script>
+            // .tagName    (주의 id값은 중복이 되어서는 안된다.)
+            document.write(document.getElementById("active").tagName+"<br>") // tagName은 ELEMENT의 메소드이기 때문에 상속받아있기에 사용가능
+            // .tagName은 태그네임을 가져오는것 (즉, 읽기전용) 뿐이기 때문에 태그값을 변경할 수 있는 메소드가 아니다.
+
+            
+            // ELEMENT의 속성값 바꾸기
+            var active = document.getElementById("active"); // var active를 id값이 active인 element로 초기화
+            
+            document.write(active.id+"<br>"); // active
+            active.id="deactive"; // id값을 deactive로 바꿈
+            document.write(active.id+"<br>"); // deactive
+
+
+            // .classList
+            var active = document.getElementById("deactive");
+            document.write(active.classList+"<br>"); // .classList는 Element의 클래스를 배열로 저장함 즉, Ex) class="important current"
+                                                    // active.classList[0]="important" active.classList[1]="current" 
+            
+            // .classList.length
+            document.write(active.classList.length+"<br>"); // .classList.length는 클래스요소 개수를 리턴함  즉, 여기선 2가 출력됨
+                                                     // important, current 이렇게 둘
+            
+            // .classList.add()
+            active.classList.add("hi");              // .classList.add()는 클래스 요소를 추가할 때 사용된다. 클래스 맨뒤에 저장됨
+            document.write(active.classList);        // important current hi 가 출력
+
+            // .classList.remove()
+            active.classLIst.remove("hi");           // .classList.remove() 클래스 요소를 삭제할 때 사용된다.
+            
+            // .classList.toggle
+            active.classList.toggle("important");    // .classList.toggle()은 ()안의 요소가 클래스에 없으면 추가를, 있다면 삭제를 한다.
+        </script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!-- 조회 대상을 제한하는 방법 (조회의 범위를 좁히는법)-->
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <ul>
+            <li class="marked">HTML</li>
+            <li>CSS</li>
+            <li id="active">JAVASCRIPT
+                <ul>
+                    <li>JAVASCRIPT CORE</li>
+                    <li class="marked">DOM</li>
+                    <li class="marked">BOM</li>
+                </ul>
+            </li>
+        </ul>
+        <script>
+            var list = document.getElementsByClassName("marked");
+            
+            console.group("document");
+            for(var i=0;i<list.length;++i)
+            {
+                console.log(list[i].textContent); // HTML DOM BOM
+            }
+            console.groupEnd();
+
+
+            console.group("active");
+            var active = document.getElementById("active"); // Element객체를 하나가져오고
+            var list = active.getElementsByClassName("marked"); // Element객체를 통해 다시 getElement를 하게되면 Element객체의 하위
+            for(var i=0;i<list.length;++i)                      // 것만 조회되어 범위를 줄일 수 있다.
+            {
+                console.log(list[i].textContent); // DOM BOM
+            }
+            console.groupEnd();
+        </script>
+    </body>
+</html>

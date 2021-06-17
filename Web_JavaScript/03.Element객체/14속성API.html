@@ -1,0 +1,47 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <a id="target" class="hello" href="http://naver.com">NAVER</a>
+        <a id="target2" href="./demo1.html">ot</a>
+        <script>
+            var t = document.getElementById("target");
+            
+            // .getAttribute("")  
+            document.write(t.getAttribute("id")+"<br>"); // t객체의 id값을 가져온다
+            document.write(t.getAttribute("href")); // t객체의 href값을 가져온다
+
+
+            // .setAttribute("","")      (속성값을 바꿀때 사용하는 메소드)
+            t.setAttribute("href","http://google.com"); // t객체의 href값을 google.com으로 바꾼다.
+
+
+            // .removeAttribute()    (속성값을 삭제할때 사용하는 메소드)
+            t.removeAttribute("id"); // id값이 삭제됨
+
+
+            // .hasAttribute()    (속성값의 유무를 파악할때 사용하는 메소드)
+            t.hasAttribute("id"); // 앞에서 id값이 삭제되었으므로 false 리턴
+            // 해당하는 속성값이 있다면 true, 없다면 false를 리턴함
+
+
+            
+
+            // attribute VS property
+            var hello = document.getElementByClassName("hello");
+                // attribute 방식
+            hello.setAttribute("class","hi");
+                // property 방식  (프로퍼티 방식이 속도가 더 빠르다.) 그러나, 프로포티 방식에서 접근한 경우 이름이 약간 생소하다
+            hello.className="hi"; // 여기서도 보다싶이 class가 아닌 className을 이용해야하는등
+
+            // 또다른 attribute와 property차이
+            var target2 = document.getElementById("target2");
+
+            console.log(target.href); // http://localhost.../../demo1.html   property의경우 전체 주소가 출력됨.
+
+            console.log(target.getAttribute("href")); // ./demo1.html attribute의 경우 상대주소가 출력됨.
+        </script>
+    </body>
+</html>
