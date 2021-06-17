@@ -1,0 +1,28 @@
+<!-- jquery로 특정한 Element하위의 element를 찾기-->
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <ul>
+            <li class="marked">HTML</li>
+            <li>CSS</li>
+            <li id="active">JAVASCRIPT</li>
+                <ul>
+                    <li>JAVASCRIPT CORE</li>
+                    <li class="marked">DOM</li>
+                    <li class="marked">BOM</li>
+                </ul>
+        </ul>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>
+            $(".marked","#active").css("background-color","red"); // $("앞","뒤")는 "뒤"에 속해있는 "앞"의 요소들을 객체화 해준다.
+                                                                  // 즉, 이 예시에서는 id=active인것 안의 class=marked인 요소
+            $("#active .marked").css("background-color","red");   // 위와 완전히 동치인 코드
+            $("#active").find(".marked").css("background-color","red"); // 위와 완전히 동치인 코드
+            // find()는 chainning할때 자주 쓰인다. Ex) $("$#active").css("color","red").find(".marked").css("background-color","green");
+            // jquery메소드의 리턴값은 객체자신이라는 것을 이용하여 chainning함 
+        </script>
+    </body>
+</html>

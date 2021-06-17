@@ -1,0 +1,16 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <a id="target" href="http://naver.com">NAVER</a>
+        <script src="//code.jquery.com/query-1.11.0.min.js"></script>
+        <script>
+            var t = $("#target");
+            console.log(t.attr("href")); // .attr("") ""속성의 값을 리턴함  http://naver.com
+            t.attr('title',"http://google.com") // .attr("","") 두번째 인자를 넣게되면 setAttribute와 같은 역할 즉, tiitle를 google.com으로 
+            t.rmoveAttr("title"); // 속성값을 삭제    title값을 삭제함
+        </script>
+    </body>
+</html>

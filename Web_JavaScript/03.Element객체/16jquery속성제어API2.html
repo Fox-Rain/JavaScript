@@ -1,0 +1,21 @@
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <a id="t" href="./demo.html">HELLO</a>
+        <input id="t2" type="checkbox" checked="checked">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>
+            // attr은 Attribute방식,    prop는 Property방식이다.
+            var t1 = $("#t1");
+            console.log(t1.attr("href")); // ./demo.html 상대주소가 리턴됨   <attribute방식>
+            console.log(t1.prop("href")); // http://localhost/j...demo.html 주소가 리턴됨  <proporty 방식>
+
+            var t2 = $("#t2");
+            console.log(t2.attr("checked")); // checked
+            console.log(t2.prop("checked")); // true
+        </script>
+    </body>
+</html>
