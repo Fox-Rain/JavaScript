@@ -1,0 +1,33 @@
+<!-- 모든 DOM객체는 Node객체를 상속받는다. (Node가 부모객체로 아우름)
+     Node객체는 모든 구성요소를 대표하는 객체이기 때문에 각각의 구성요소가  어떤 카테고리에 속해있는지 알려주는 식별자를 제공함 -->
+<!doctype>
+<html>
+    <head>
+
+    </head>
+    <body id="start">
+        <ul>
+            <li><a href="./523">html</a></li>
+            <li><a href="./524">css</a></li>
+            <li><a href="./525">javaScript</a></li>
+                <ul>
+                    <li><a href="./526">javaScript Core</a></li>
+                    <li><a href="./527">DOM</a></li>
+                    <li><a href="./528">BOM</a></li>
+                </ul>
+        </ul>
+        <script> // 찾을때 공백요소를 주의하자! #text
+            var s = document.getElementById("start");
+            console.log(1,s.firstChild); // firstChild 첫번째 자식을 가져옴 (주의할점은 줄바꿈등이 다음에 바로나온다면 줄바꿈을 가져와 버림..)
+
+            var ul = s.firstChild.nextSibling; // 같은 레벨의 다음 요소를 가져옴
+            console.log(2,ul);
+            console.log(3,ul.nextsibling);
+            console.log(4,ul.nextsibling.nextsibling);
+            console.log(5,ul.childNodes); // 자식요소들을 유사배열로 가져옴 (주의할점은 줄바꿈또한 요소(#text)로 파악해서 줄바꿈도 가져온다)
+                                          // childNodes는 유사배열로 가져오므로 ul.childNodes[1] 이런식으로 index로 사용이 가능
+            console.log(6,childNodes[0]);
+            console.log(7,parentNode); // 부모 요소를 가져옴 (이때는 줄바꿈 등이 상관이 없음)
+        </script>
+    </body>
+</html>
